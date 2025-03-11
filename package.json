@@ -2,7 +2,10 @@
   "name": "@mvp-arquitetura-frontend/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "docker:build": "docker build -t mvp-arquitetura-frontend .",
+    "docker:run": "docker run -p 8080:80 mvp-arquitetura-frontend"
+  },
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
