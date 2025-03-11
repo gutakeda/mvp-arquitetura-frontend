@@ -1,0 +1,9 @@
+{
+  "name": "mvp-arquitetura-frontend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mvp-arquitetura-frontend/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project mvp-arquitetura-frontend --web",
+  "targets": {}
+}
