@@ -56,6 +56,11 @@ Para executar o aplicativo, siga os passos abaixo:
    npm run docker:run
    ```
 
+5. O container está disponível na porta 8080
+   ```
+   http://localhost:8080
+   ```
+
 ## Licença
 
 Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.

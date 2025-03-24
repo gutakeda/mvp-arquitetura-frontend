@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "docker:build": "docker build -t mvp-arquitetura-frontend .",
-    "docker:run": "docker run -p 8080:80 mvp-arquitetura-frontend"
+    "docker:run": "docker run --env-file .env -p 8080:80 mvp-arquitetura-frontend"
   },
   "private": true,
   "dependencies": {
