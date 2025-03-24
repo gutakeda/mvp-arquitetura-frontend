@@ -1,43 +1,41 @@
-// src/app/components/Login.tsx
-import React from 'react';
+import { useEffect } from 'react';
+import { Button, Container, Typography, Box } from '@mui/material';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Box, Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function Login() {
-  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+const Login = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/home');
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
-    <Container maxWidth="sm">
+    <Container component="main" maxWidth="xs">
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
           alignItems: 'center',
-          //height: '100vh',
+          marginTop: 8,
         }}
       >
-        <Typography variant="h3" gutterBottom>
-          Welcome to YourExpenses
-        </Typography>
-        <Typography variant="h6" paragraph>
-          Please log in to manage your expenses.
-        </Typography>
-        {/* Exibe o botão de login se o usuário não estiver autenticado */}
-        {!isAuthenticated ? (
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={() => loginWithRedirect()}
-          >
-            Log In
-          </Button>
-        ) : (
-          <Typography variant="h6">Welcome, {user?.name}</Typography>
-        )}
+        <Typography variant="h5">Sign In with Auth0</Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          fullWidth
+          onClick={() => loginWithRedirect()}
+          sx={{ marginTop: 2 }}
+        >
+          Log In
+        </Button>
       </Box>
     </Container>
   );
-}
+};
 
 export default Login;
