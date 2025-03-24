@@ -37,23 +37,23 @@ Para executar o aplicativo, siga os passos abaixo:
    cd mvp-arquitetura-frontend
    ```
 
-2. Crie a imagem local
-
-   ```bash
-   npm run docker:build
-   ```
-
-3. Crie o arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente:
+2. Crie o arquivo .env na raiz do projeto e adicione as seguintes variáveis de ambiente:
    ```bash
     VITE_AUTH0_DOMAIN=...
     VITE_AUTH0_CLIENT_ID=...
     VITE_AUTH0_API_AUDIENCE=...
    ```
 
+3. Crie a imagem local
+
+   ```bash
+   docker build -t mvp-arquitetura-frontend .
+   ```
+
 4. Rode a imagem
 
    ```bash
-   npm run docker:run
+   docker run --env-file .env -p 8080:80 mvp-arquitetura-frontend
    ```
 
 5. O container está disponível na porta 8080
