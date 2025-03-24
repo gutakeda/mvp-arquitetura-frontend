@@ -2,10 +2,20 @@
 
 YourExpenses Frontend é a parte da interface do usuário do aplicativo YourExpenses, desenvolvido para ajudar os usuários a gerenciar suas transações financeiras de maneira simples e intuitiva.
 
+# Diagrama de Arquitetura
+![Diagrama de Arquitetura](./mvp-arquitetura.drawio.png)
+
 ## Funcionalidades
 
-1. **Tabela de Transações**:
+1. **Login pelo Auth0 (API Externa)**
+   - A aplicação utiliza Auth0 como provedor de autenticação para gerenciar login, logout e autorização de usuários.
+   - Auth0 possui uma versão gratuita com limitações e planos pagos para funcionalidades avançadas.
+   - É necessário criar uma conta no Auth0 e Criar uma aplicação SPA e configurar Allowed Callback URLs e Allowed Web Origins e configurar o arquivo .env com as variáveis de ambiente. Mais detalhes na seção 'Instruções de Uso'.
+   - **Rotas chamadas**:
+     - `GET /u/login`: Quando o usuário clica em "Login", inicia o fluxo de autenticação no Auth0.
+     - `POST /oauth/token`: Obtém um Access Token para autenticação na API e traz informações do usuário.
 
+2. **Tabela de Transações**:
    - Exibe transações do tipo `deposit` e `withdrawal`.
    - Cada transação inclui detalhes como descrição, data e valor.
    - Os usuários podem adicionar e deletar transações.
