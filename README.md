@@ -19,6 +19,7 @@ YourExpenses Frontend é a parte da interface do usuário do aplicativo YourExpe
    - Exibe transações do tipo `deposit` e `withdrawal`.
    - Cada transação inclui detalhes como descrição, data e valor.
    - Os usuários podem adicionar e deletar transações.
+   - Os usuários podem adicionar categorias.
 
 3. **Dashboard**:
    - Mostra o total de `deposits`.

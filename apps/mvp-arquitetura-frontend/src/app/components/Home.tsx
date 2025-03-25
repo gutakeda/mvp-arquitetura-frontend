@@ -4,6 +4,7 @@ import TransactionTable from '../components/TransactionTable';
 import { useAuth0 } from '@auth0/auth0-react';
 import AddTransactionModal from './AddTransactionModal';
 import useTransactions from '../hooks/useTransactions';
+import AddCategoryModal from './AddCategoryModal';
 
 const Home = () => {
   const { isAuthenticated } = useAuth0();
@@ -14,9 +15,11 @@ const Home = () => {
     deleteTransaction,
     categories,
     fetchCategories,
+    addCategory,
   } = useTransactions();
 
-  const [openModal, setOpenModal] = useState(false);
+  const [isCategoryModalOpen, setCategoryModalOpen] = useState(false);
+  const [isTransactionModalOpen, setTransactionModalOpen] = useState(false);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -71,14 +74,32 @@ const Home = () => {
         </Grid2>
       </Grid2>
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={() => setOpenModal(true)}
-        sx={{ marginBottom: 3, marginTop: 3 }}
+      <Grid2
+        container
+        spacing={2}
+        alignItems="center"
+        sx={{ marginTop: 3, marginBottom: 3 }}
       >
-        Add Transaction
-      </Button>
+        <Grid2>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setTransactionModalOpen(true)}
+          >
+            Add Transaction
+          </Button>
+        </Grid2>
+
+        <Grid2>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setCategoryModalOpen(true)}
+          >
+            Add Category
+          </Button>
+        </Grid2>
+      </Grid2>
 
       <TransactionTable
         transactions={transactions}
@@ -86,10 +107,16 @@ const Home = () => {
       />
 
       <AddTransactionModal
-        open={openModal}
-        onClose={() => setOpenModal(false)}
+        open={isTransactionModalOpen}
+        onClose={() => setTransactionModalOpen(false)}
         onAddTransaction={addTransaction}
         categories={categories}
+      />
+
+      <AddCategoryModal
+        open={isCategoryModalOpen}
+        onClose={() => setCategoryModalOpen(false)}
+        onAddCategory={addCategory}
       />
     </Container>
   );

@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import useAxios, { API_BASE_URL } from '../../utils/useAxios';
-import { Category, Transaction, TransactionPayload } from '../types';
+import {
+  Category,
+  CategoryPayload,
+  Transaction,
+  TransactionPayload,
+} from '../types';
 
 const useTransactions = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -22,6 +27,15 @@ const useTransactions = () => {
       setCategories(response.data);
     } catch (error) {
       console.error('Error fetching categories', error);
+    }
+  };
+
+  const addCategory = async (category: CategoryPayload) => {
+    try {
+      await axios.post(`${API_BASE_URL}/category`, category);
+      fetchCategories();
+    } catch (error) {
+      console.error('Error adding category', error);
     }
   };
 
@@ -48,6 +62,7 @@ const useTransactions = () => {
   return {
     transactions,
     fetchTransactions,
+    addCategory,
     categories,
     fetchCategories,
     addTransaction,
