@@ -20,6 +20,9 @@ RUN nx build mvp-arquitetura-frontend --prod
 # Etapa 2: Servir a aplicação
 FROM nginx:alpine
 
+# Copiar o arquivo de configuração do Nginx personalizado
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # Copiar os arquivos de build para o diretório do Nginx
 COPY --from=build /app/dist/apps/mvp-arquitetura-frontend /usr/share/nginx/html
 
