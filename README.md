@@ -31,6 +31,7 @@ YourExpenses Frontend é a parte da interface do usuário do aplicativo YourExpe
 ### Requisitos
 - Docker
 
+### Passo a passo
 Para executar o aplicativo, siga os passos abaixo:
 
 1. Clone este repositório:
