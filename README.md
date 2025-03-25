@@ -2,7 +2,7 @@
 
 YourExpenses Frontend é a parte da interface do usuário do aplicativo YourExpenses, desenvolvido para ajudar os usuários a gerenciar suas transações financeiras de maneira simples e intuitiva.
 
-# Diagrama de Arquitetura
+## Diagrama de Arquitetura
 ![Diagrama de Arquitetura](./mvp-arquitetura.drawio.png)
 
 ## Funcionalidades
