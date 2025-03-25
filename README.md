@@ -28,6 +28,8 @@ YourExpenses Frontend é a parte da interface do usuário do aplicativo YourExpe
    - Atualizado automaticamente ao adicionar ou deletar transações.
 
 ## Instruções de Uso
+### Requisitos
+- Docker
 
 Para executar o aplicativo, siga os passos abaixo:
 
